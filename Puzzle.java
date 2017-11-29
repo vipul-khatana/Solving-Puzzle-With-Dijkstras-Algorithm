@@ -1,3 +1,7 @@
+/*
+Solving the Puzzle Problem by shortest path algorithm. 
+*/
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -25,6 +29,8 @@ public class Puzzle
 	static HashMap<String, ArrayList< String >> graphNodes =  new HashMap<String, ArrayList<String>>();
 	static HashMap<String, ArrayList< String >> graphCosts =  new HashMap<String, ArrayList<String>>();
 	static String startStr="12345678G";
+	
+	//Creating the adjacency list of the graph
 	public static ArrayList< ArrayList<String> > getNeighbours(String str)
 	{
 		ArrayList< ArrayList<String> > ans = new ArrayList< ArrayList<String> >();
@@ -34,7 +40,7 @@ public class Puzzle
 		if(indexOfGap==0)
 		{
 			String newStr1;
-			//move left
+			//move gap left
 			newStr1="";
 			newStr1+=str.charAt(1);
 			newStr1+=str.charAt(0);
@@ -47,7 +53,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(1, 2)+"L");
-			//move up
+			//move gap up
 			newStr1="";
 			newStr1+=str.charAt(3);
 			newStr1+=str.charAt(1);
@@ -64,7 +70,7 @@ public class Puzzle
 		else if(indexOfGap==1)
 		{
 			String newStr1;
-			//move right
+			//move gap right
 			newStr1="";
 			newStr1+=str.charAt(1);
 			newStr1+=str.charAt(0);
@@ -77,7 +83,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(0, 1)+"R");
-			//move left
+			//move gap left
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(2);
@@ -90,7 +96,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(2, 3)+"L");
-			//move Up
+			//move gap Up
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(4);
@@ -108,7 +114,7 @@ public class Puzzle
 		else if(indexOfGap==2)
 		{
 			String newStr1;
-			//Move right
+			//Move gap right
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(2);
@@ -121,7 +127,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(1, 2)+"R");
-			//Move Up
+			//Move gap Up
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -138,7 +144,7 @@ public class Puzzle
 		else if(indexOfGap==3)
 		{
 			String newStr1;
-			//Move Down
+			//Move gap Down
 			newStr1="";
 			newStr1+=str.charAt(3);
 			newStr1+=str.charAt(1);
@@ -151,7 +157,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(0, 1)+"D");
-			//Move Left
+			//Move gap Left
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -164,7 +170,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(4, 5)+"L");
-			//Move Up
+			//Move gap Up
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -181,7 +187,7 @@ public class Puzzle
 		else if(indexOfGap==4)
 		{
 			String newStr1;
-			//Move Right
+			//Move gap Right
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -194,7 +200,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(3, 4)+"R");
-			//Move Down
+			//Move gap Down
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(4);
@@ -207,7 +213,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(1, 2)+"D");
-			//Move Left
+			//Move gap Left
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -220,7 +226,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(5, 6)+"L");
-			//Move Up
+			//Move gap Up
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -237,7 +243,7 @@ public class Puzzle
 		else if(indexOfGap==5)
 		{
 			String newStr1;
-			//Move Right
+			//Move gap Right
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -250,7 +256,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(4, 5)+"R");
-			//Move Down
+			//Move gap Down
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -263,7 +269,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(2, 3)+"D");
-			//Move Up
+			//Move gap Up
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -280,7 +286,7 @@ public class Puzzle
 		else if(indexOfGap==6)
 		{
 			String newStr1;
-			//Move Down
+			//Move gap Down
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -293,7 +299,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(3, 4)+"D");
-			//Move Left
+			//Move gap Left
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -310,7 +316,7 @@ public class Puzzle
 		else if(indexOfGap==7)
 		{
 			String newStr1;
-			//Move Right
+			//Move gap Right
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -323,7 +329,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(6, 7)+"R");
-			//Move Down
+			//Move gap Down
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -336,7 +342,7 @@ public class Puzzle
 			newStr1+=str.charAt(8);
 			neigh.add(newStr1);
 			cost.add(str.substring(4, 5)+"D");
-			//Move Left
+			//Move gap Left
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -353,7 +359,7 @@ public class Puzzle
 		else if(indexOfGap==8)
 		{
 			String newStr1;
-			//Move Right
+			//Move gap Right
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -366,7 +372,7 @@ public class Puzzle
 			newStr1+=str.charAt(7);
 			neigh.add(newStr1);
 			cost.add(str.substring(7, 8)+"R");
-			//Move Down
+			//Move gap Down
 			newStr1="";
 			newStr1+=str.charAt(0);
 			newStr1+=str.charAt(1);
@@ -386,9 +392,9 @@ public class Puzzle
 		return ans;
 	}
 	
+	//Creating the nodes from the possible states
 	public static void makeGraphNodes()
 	{
-		
 		Deque dequeA = new LinkedList();
 		dequeA.add(startStr);
 		while(!dequeA.isEmpty())
@@ -409,6 +415,7 @@ public class Puzzle
 	static int distAns,jumpAns;
 	static String pathAns;
 	
+	//Running the BFS to get all the possible states
 	public static void runBfs(String StartState,String EndState,int[] currCostArr)
 	{
 		char gum='1';
@@ -426,7 +433,6 @@ public class Puzzle
 			numJumps.put(keyStr, Integer.MAX_VALUE);
 			pathStr.put(keyStr, "");
 		}		
-		
 		visited.put(StartState,true);
 		dist.put(StartState,0);
 		numJumps.put(StartState,0);
@@ -487,11 +493,6 @@ public class Puzzle
 				}
 			}
 		}
-		
-//		HashMap<String,Boolean> visited=new HashMap<String,Boolean>();
-//		HashMap<String,Integer> dist=new HashMap<String,Integer>();
-//		HashMap<String,Integer> numJumps=new HashMap<String,Integer>();
-//		HashMap<String,String> pathStr=new HashMap<String,String>();
 		if(dist.containsKey(EndState))
 		{
 			distAns=dist.get(EndState);
@@ -509,10 +510,10 @@ public class Puzzle
 	
 	public static void main(String[] args) throws IOException
 	{
-		// String inputFilename = "input.txt";
-		// String outputFilename = "output.txt";
 		String inputFilename=args[0];
 		String outputFilename=args[1];
+		
+		//Loading the input file
 		FileReader fileReader=new FileReader(inputFilename);
 		Scanner scanner = new Scanner(new File(inputFilename));
 		numTestCases=scanner.nextInt();
@@ -526,14 +527,9 @@ public class Puzzle
 				costArray[i][j]=scanner.nextInt();
 			}
 		}
-		makeGraphNodes();
-		// System.out.println(startState.size());
-		// System.out.println(startState.get(3));
-		// System.out.println(graphNodes.size());
-		// System.out.println(graphCosts.size());
+		makeGraphNodes(); // This function will span the graph from the input 
 		
-		
-		
+		//Determining the output and writing it onto the output file
 		 try {
 	            //Whatever the file path is.
 	            File statText = new File(outputFilename);
@@ -546,7 +542,7 @@ public class Puzzle
 	    			String currStartState= startState.get(i);
 	    			String currEndState= endState.get(i);
 	    			int[] currCostVec=costArray[i];
-
+				
 	    			if(!graphNodes.containsKey(currStartState))
 	    			{
 	    				graphNodes.clear();
@@ -554,19 +550,13 @@ public class Puzzle
 	    				startStr=currStartState;
 	    				makeGraphNodes();
 	    			}
-
 	    			runBfs(currStartState,currEndState,currCostVec);
 	    			w.write(jumpAns+" "+distAns+System.lineSeparator());
-	    			//System.out.println(jumpAns+" "+distAns);
 	    			w.write(pathAns+System.lineSeparator());
-	    			//System.out.println(pathAns);
 	    		}
-	            //w.write("POTATO!!!");
 	            w.close();
 	        } catch (IOException e) {
 	            System.err.println("Problem writing to the file statsTest.txt");
 	        }
-		
-		
 	}
 }
