@@ -1,6 +1,15 @@
 # Solving-Puzzle-With-Dijkstras-Algorithm
 In this project we try to solve a puzzle using the Dijkstra's algorithm. A brief explanation of the problem is given below. 
 
+## Sections 
+
++ [Overview of the problem](https://github.com/vipul-khatana/Solving-Puzzle-With-Dijkstras-Algorithm#overview-of-problem)
++ [Methodology](https://github.com/vipul-khatana/Solving-Puzzle-With-Dijkstras-Algorithm#methodology)
++ [File Format](https://github.com/vipul-khatana/Solving-Puzzle-With-Dijkstras-Algorithm#file-format)
++ [How to run](https://github.com/vipul-khatana/Solving-Puzzle-With-Dijkstras-Algorithm#how-to-run)
++ [Author](https://github.com/vipul-khatana/Solving-Puzzle-With-Dijkstras-Algorithm#author)
++ [Contributing](https://github.com/vipul-khatana/Solving-Puzzle-With-Dijkstras-Algorithm#contributing)
+
 ## Overview of problem 
 The game consists of a 3x3 grid with 8 tiles numbered 1 to 8. There is one gap in the puzzle that allows movement of tiles. Tiles can move horizontally or vertically. Here may be one starting configuration of an 8-puzzle:
 
@@ -20,7 +29,9 @@ Once we have this graph then we know that there is one source node, which is the
 
 ## File format 
 
-+ **Input File** The input filename will be given as a system argument when the code is run. The first line of the input file should consist of an integer T denoting the number of testcases in the file.The first line of each test case should consist of two space separated strings representing the start state and the goal state. The second line of a test case should consist of 8 non-negative integers, d1 ... d8 representing the cost function (0 <= di <= 1000).
++ **Input File** 
+
+The input filename will be given as a system argument when the code is run. The first line of the input file should consist of an integer T denoting the number of testcases in the file.The first line of each test case should consist of two space separated strings representing the start state and the goal state. The second line of a test case should consist of 8 non-negative integers, d1 ... d8 representing the cost function (0 <= di <= 1000).
 
 <img src="Other/img3.png" alt="Drawing" width="200" height="200"/>
 
@@ -44,9 +55,11 @@ A sample input file is as follows:
 
 1 2 3 4 5 6 7 8 
 
-+ **Output File** The code will generate an ouptut file in a .txt format, the name of the file that you wish to have shuld be given as a system argument during runtime. For each test case, there will be two lines. In the first line there will be two integers 'n', the number of moves in the optimal path to reach the goal state from the start state, and 'd', the cost of the optimal path. If goal state is not reachable then output would be “-1 -1”. In the next line, if a path exists, then there will be n space separated tokens to describe the moves the optimal path. Each token consists of an integer from 1 to 8 and a character in {U, D, L, R} which describes which number was moved in the position of the gap, and the direction it moved. 
++ **Output File** 
 
-For example, suppose the code computes solution “8 down, 6 right, 5 up, 8 left” (4 moves, cost 27) for first test case and “8 down, 6 right, 5 up, 7 right” (4 moves, cost 0) for the second test case (and so on), following will be the output file. If the path is of length 0, or it doesn’t exist, then this line will be left as blank. 
+The code will generate an ouptut file in a .txt format, the name of the file that you wish to have shuld be given as a system argument during runtime. For each test case, there will be two lines. In the first line there will be two integers 'n', the number of moves in the optimal path to reach the goal state from the start state, and 'd', the cost of the optimal path. If goal state is not reachable then output would be “-1 -1”. In the next line, if a path exists, then there will be n space separated tokens to describe the moves the optimal path. Each token consists of an integer from 1 to 8 and a character in {U, D, L, R} which describes which number was moved in the position of the gap, and the direction it moved. 
+
+ For example, suppose the code computes solution “8 down, 6 right, 5 up, 8 left” (4 moves, cost 27) for first test case and “8 down, 6     right, 5 up, 7 right” (4 moves, cost 0) for the second test case (and so on), following will be the output file. If the path is of length 0, or it doesn’t exist, then this line will be left as blank. 
 
 4 27
 
