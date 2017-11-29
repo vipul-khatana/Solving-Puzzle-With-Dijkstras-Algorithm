@@ -29,7 +29,7 @@ Once we have this graph then we know that there is one source node, which is the
 
 ## File format 
 
-+ **Input File** 
+**Input File** 
 
 The input filename will be given as a system argument when the code is run. The first line of the input file should consist of an integer T denoting the number of testcases in the file.The first line of each test case should consist of two space separated strings representing the start state and the goal state. The second line of a test case should consist of 8 non-negative integers, d1 ... d8 representing the cost function (0 <= di <= 1000).
 
@@ -55,7 +55,7 @@ A sample input file is as follows:
 
 1 2 3 4 5 6 7 8 
 
-+ **Output File** 
+**Output File** 
 
 The code will generate an ouptut file in a .txt format, the name of the file that you wish to have shuld be given as a system argument during runtime. For each test case, there will be two lines. In the first line there will be two integers 'n', the number of moves in the optimal path to reach the goal state from the start state, and 'd', the cost of the optimal path. If goal state is not reachable then output would be “-1 -1”. In the next line, if a path exists, then there will be n space separated tokens to describe the moves the optimal path. Each token consists of an integer from 1 to 8 and a character in {U, D, L, R} which describes which number was moved in the position of the gap, and the direction it moved. 
 
